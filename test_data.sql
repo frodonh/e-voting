@@ -28,6 +28,8 @@ COPY evoting.answers (id, answer) FROM stdin;
 4	Chien
 5	Chat
 6	Poisson rouge
+7	Jean Bon
+8	Alain Térieur
 \.
 
 
@@ -38,6 +40,7 @@ COPY evoting.answers (id, answer) FROM stdin;
 COPY evoting.questions (id, question) FROM stdin;
 1	Quelle est votre couleur préférée ?
 2	Quelle est votre animal préféré ?
+3	Pour quelle liste votez-vous ?
 \.
 
 
@@ -52,6 +55,8 @@ COPY evoting.questions_answers (question, answer) FROM stdin;
 2	4
 2	5
 2	6
+3	7
+3	8
 \.
 
 
@@ -71,6 +76,7 @@ COPY evoting.sessions (id, sessiondate) FROM stdin;
 COPY evoting.users (id, login, password, fullname, email, admin, token) FROM stdin;
 2	admin	abc	\N	\N	t	v1uqBwqmkd0j9A9
 1	francois	password	FH	anne.onyme@le.fr	f	HCr8orqJqa9Kku8
+3	david	abc	DT	jean.bon@le.fr	f	ufCedvf4yl6usG5
 \.
 
 
@@ -88,6 +94,7 @@ COPY evoting.sessions_results (session, voter, question, answer) FROM stdin;
 
 COPY evoting.surveys (id, owner, title) FROM stdin;
 1	1	Mon assemblée générale
+2	3	Les élections municipales
 \.
 
 
@@ -98,6 +105,7 @@ COPY evoting.surveys (id, owner, title) FROM stdin;
 COPY evoting.surveys_questions (survey, question) FROM stdin;
 1	1
 1	2
+2	3
 \.
 
 
@@ -105,14 +113,14 @@ COPY evoting.surveys_questions (survey, question) FROM stdin;
 -- Name: answers_id_seq; Type: SEQUENCE SET; Schema: evoting; Owner: -
 --
 
-SELECT pg_catalog.setval('evoting.answers_id_seq', 6, true);
+SELECT pg_catalog.setval('evoting.answers_id_seq', 8, true);
 
 
 --
 -- Name: questions_id_seq; Type: SEQUENCE SET; Schema: evoting; Owner: -
 --
 
-SELECT pg_catalog.setval('evoting.questions_id_seq', 2, true);
+SELECT pg_catalog.setval('evoting.questions_id_seq', 3, true);
 
 
 --
@@ -126,14 +134,14 @@ SELECT pg_catalog.setval('evoting.sessions_id_seq', 1, true);
 -- Name: survey_id_seq; Type: SEQUENCE SET; Schema: evoting; Owner: -
 --
 
-SELECT pg_catalog.setval('evoting.survey_id_seq', 1, true);
+SELECT pg_catalog.setval('evoting.survey_id_seq', 2, true);
 
 
 --
 -- Name: users_id_seq; Type: SEQUENCE SET; Schema: evoting; Owner: -
 --
 
-SELECT pg_catalog.setval('evoting.users_id_seq', 2, true);
+SELECT pg_catalog.setval('evoting.users_id_seq', 3, true);
 
 
 --

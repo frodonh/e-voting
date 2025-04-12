@@ -1,0 +1,4 @@
+<svg baseprofile="full" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="xMidYMid meet" viewBox="0 0 100 100">
+	<circle cx="40" cy="40" r="30" style="stroke: blue; stroke-width: 10; fill: none" />
+	<line x1="64" y1="64" x2="92" y2="92" style="stroke: blue; stroke-width: 10px; stroke-linecap: round" />
+</svg>
